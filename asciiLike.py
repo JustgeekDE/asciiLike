@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import string, math, sys
-import cv2
-import numpy as np
-from matplotlib import pyplot as plt
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageOps, ImageEnhance
 
 def getWindowSize():
@@ -49,9 +46,9 @@ def convertImageForProcessing(image, outputLines):
   image = resizeToOutput(image, outputLines, 32)
   image = ImageOps.grayscale(image)
   enhancer = ImageEnhance.Contrast(image)
-  image = enhancer.enhance(0.9)
+  image = enhancer.enhance(1.3)
   enhancer = ImageEnhance.Brightness(image)
-  image = enhancer.enhance(0.25)
+  image = enhancer.enhance(0.3)
   # image = ImageOps.equalize(image)
 #  image = image.filter(ImageFilter.FIND_EDGES)
   # image = ImageOps.invert(image)
