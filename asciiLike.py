@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import string, math, sys
+import cv2
+import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageOps, ImageEnhance
 
 def getWindowSize():
@@ -41,6 +43,11 @@ def getImagePixels(image):
   colorData = list(image.getdata())
   pixels = [i[j] for i in colorData for j in range(len(i))]
   return pixels
+
+# def dilate(image):
+#   img = cv2.imread('j.png',0)
+#   kernel = np.ones((5,5),np.uint8)
+#   erosion = cv2.erode(img,kernel,iterations = 1)
 
 def convertImageForProcessing(image, outputLines):
   image = resizeToOutput(image, outputLines, 32)
